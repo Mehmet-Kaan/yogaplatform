@@ -1,0 +1,44 @@
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Waiting Room</title>
+</head>
+<body>
+    <nav>
+        <img class="lotus" src="assets/lotus.png" alt="">
+        <h1 class="title">Yoga Platform - Waiting Room</h1>
+    </nav>
+    <div class="content">
+        <img class="yogaImage" src="" alt="">
+        <h2 class="yogaType"></h2>
+
+        <div class="attendanceBox">
+            <div class="attendance">4</div>
+            <div class="attendances">
+                <h4>@Juan99 from Màlaga</h4>
+                <h4>@MustafaXX from Afghanistan</h4>
+                <h4>@Joàoseff from Portugal</h4>
+                <h4>@Simon from Utah</h4>
+            </div>
+        </div>
+
+        <div class="chatBox">
+            Open the chat
+        </div>
+    </div>
+</body>
+<script>
+    let yogaType = sessionStorage.getItem("yogatype");
+    let yogaTypeP = document.querySelector(".yogaType");
+    yogaTypeP.innerText = "Attendance to " + yogaType + " Yoga";
+
+    let yogaImage = document.querySelector(".yogaImage");
+    yogaImage.setAttribute("src", `assets/${yogaType}.jpg`);
+
+    setTimeout(() => {
+        window.location.href = "session.html";
+    }, 4000);
+</script>
+</html>

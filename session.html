@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Session</title>
+</head>
+<body>
+    <nav>
+        <img class="lotus" src="assets/lotus.png" alt="">
+        <h1 class="title">Yoga Platform - Waiting Room</h1>
+    </nav>
+    <div class="content">
+        <h2 class="yogaType">Take some deep breaths!</h2>
+        <img class="yogaImage meditating" src="assets/meditating.png" alt="">
+
+        <h2>Select your vibe for the session!</h2>
+        <div class="selection">
+            <div class="button calm">Calm</div>
+            <div class="button energetic">Energetic</div>
+        </div>
+
+        <a class="linkToMeet hide" target="_blank">
+            <img class="startIcon" src="assets/icon.png" alt="">
+            <h5>
+                Let's start!
+            </h5>
+        </a>
+    </div>
+</body>
+<script>
+    let linkToMeeting = document.querySelector(".linkToMeet");
+    let meditatingChar = document.querySelector(".meditating");
+
+    let btns = document.querySelectorAll(".button");
+        btns.forEach(btn => {
+            btn.addEventListener("click", (e)=>{
+                let selectedBtn = document.querySelector(".selected");
+
+                if(selectedBtn && selectedBtn !== btn){
+                    selectedBtn.classList.remove("selected");
+                }
+
+                if (!btn.classList.contains("selected")) {
+                    if (btn.classList.contains("calm")) {
+                        meditatingChar.classList.remove("energeticFilter");
+                        meditatingChar.classList.add("calmFilter");
+                    }else{
+                        meditatingChar.classList.remove("calmFilter");
+                        meditatingChar.classList.add("energeticFilter");
+                    }
+                    btn.classList.add("selected");
+                }
+
+                linkToMeeting.classList.remove("hide");
+                linkToMeeting.href = "https://googlemeet.com";
+            })
+        });
+  
+</script>
+</html>
